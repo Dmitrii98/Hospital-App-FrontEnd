@@ -1,6 +1,9 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
-import SignUpStyles from './SignUpStyles.css'
+import {
+  TextField,
+  Button
+} from '@material-ui/core';
+import SignUpStyles from './SignUpStyles.css';
 
 function SignUp() {
   return (
@@ -11,7 +14,12 @@ function SignUp() {
       <div className='input-fields'>
         <div className='login'>
           <p>Login:</p>
-          <TextField id="outlined-basic" className='login-input' variant="outlined" placeholder='Login'/>
+          <TextField
+            id="outlined-basic"
+            className='login-input'
+            variant="outlined"
+            placeholder='Login'
+          />
         </div>
         <div className='password'>
           <p>Password:</p>
@@ -36,11 +44,15 @@ function SignUp() {
           />
         </div>
         <div className='buttons'>
-          <Button className='register-btn' variant="outlined">Зарегистрироваться</Button>
+          <Button
+            className='register-btn'
+            variant="outlined"
+          >
+            Зарегистрироваться
+          </Button>
           <Button className='authorization-btn'>Авторизоваться</Button>
         </div>
       </div>
-
     </div>
   );
 }

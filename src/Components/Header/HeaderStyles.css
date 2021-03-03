@@ -1,11 +1,11 @@
 .nav-bar.MuiAppBar-root {
-    background-color: #C5E9FF;
+  background-color: #C5E9FF;
 }
 
 .nav-text.MuiTypography-root {
-    margin-left: 5vw;
-    color: #000;
-    font-family: Roboto;
-    font-size: 36px;
-    font-weight: 300;
+  margin-left: 5vw;
+  color: #000;
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 300;
 }

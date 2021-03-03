@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, AppBar } from '@material-ui/core';
-import RegisterStyles from './RegisterStyles.css'
 import Header from "../Header/Header";
 import Wrapper from "../Wrapper/Wrapper";
+import RegisterStyles from './RegisterStyles.css';
 
 function Register() {
   return (

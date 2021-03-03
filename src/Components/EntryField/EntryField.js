@@ -1,6 +1,6 @@
 import React from 'react';
-import EntryFieldStyles from './EntryFieldStyles.css'
 import SignUp from "./SignUp/SignUp";
+import EntryFieldStyles from './EntryFieldStyles.css';
 
 function EntryField() {
   return (
