@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: #E5E5E5;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5% 10%;
+}
+
+.logo-wrapper {
+  margin-right: 10%;
+  height: 375px;
+  width: 375px;
+  margin-top: 5%;
+}
