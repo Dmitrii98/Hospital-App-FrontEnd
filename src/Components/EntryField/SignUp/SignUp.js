@@ -17,10 +17,12 @@ function SignUp() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
-  const [open, setOpen] = React.useState(false);
+  const [openPassword, setErrorPassword] = React.useState(false);
+  const [openLogin, setErrorLogin] = React.useState(false);
 
   const handleClick = () => {
-    setOpen(true);
+    setErrorPassword(true);
+    openLogin(true);
   }
 
   const handleClose = (event, reason) => {
@@ -28,7 +30,8 @@ function SignUp() {
       return;
     }
 
-    setOpen(false);
+    setErrorPassword(false);
+    openLogin(false);
   }
 
   const registerUser = async () => {
@@ -42,6 +45,12 @@ function SignUp() {
       setUser(res.data.data);
     })
   }
+
+  // const checkLogin = () => {
+  //   if (login.length < 6) {
+  //     setErrorLogin(true);
+  //   }
+  // }
 
   return (
     <div className="sign-up">
@@ -97,16 +106,19 @@ function SignUp() {
               } else {
                 setPassword('');
                 setPasswordRepeat('');
-                setOpen(true);
-                }
+                setErrorPassword(true);
               }
+            }
             }
           >
             Зарегистрироваться
           </Button>
           <Button className='authorization-btn'>Авторизоваться</Button>
-          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert severity="error">Пароли не совпадают</Alert>
+          <Snackbar open={openPassword} autoHideDuration={6000} onClose={handleClose}>
+            <Alert severity="error">Пароли не совпадают!</Alert>
+          </Snackbar>
+          <Snackbar open={openLogin} autoHideDuration={6000} onClose={handleClose}>
+            <Alert severity="error">Выберете другой логин!</Alert>
           </Snackbar>
         </div>
       </div>
