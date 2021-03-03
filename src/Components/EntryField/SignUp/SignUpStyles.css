@@ -1,0 +1,72 @@
+/*===================================
+==============Text==================
+====================================*/
+
+.header-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000;
+    padding: 0 20%;
+}
+
+p {
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+/*===================================
+==============Input=================
+====================================*/
+
+.input-fields {
+    width: 80%;
+    display: flex;
+    padding-left: 10%;
+    flex-direction: column;
+}
+
+.MuiOutlinedInput-input {
+    padding: 3% 5% !important;
+}
+
+.login-input.MuiTextField-root {
+    width: 100%;
+}
+
+.password-input.MuiTextField-root {
+    width: 100%;
+}
+
+/*===================================
+==============Button=================
+====================================*/
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.register-btn.MuiButton-root{
+    margin: 20px 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.authorization-btn.MuiButton-root{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
