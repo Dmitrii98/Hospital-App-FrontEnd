@@ -120,6 +120,7 @@ function SignUp() {
           <Button
             className='register-btn'
             variant="outlined"
+            disabled={!login || !password || !passwordRepeat}
             onClick={() => {
               addNewUser();
             }
@@ -127,7 +128,7 @@ function SignUp() {
           >
             Зарегистрироваться
           </Button>
-          <Button className='authorization-btn'>Авторизоваться</Button>
+          <Button disabled={!login || !password || !passwordRepeat} className='authorization-btn'>Авторизоваться</Button>
           <Snackbar
             open={openError}
             autoHideDuration={6000}
