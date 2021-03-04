@@ -14,8 +14,7 @@ function Alert(props) {
 
 function SignUp() {
   const regexpLogin = /.{6,}/;
-  const regexpPassword = /[A-Za-z0-9]{6,}\d/;
-  const [user, setUser] = useState([]);
+  const regexpPassword = /(?=.*[0-9])[A-Za-z0-9]{5,}/;
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
@@ -42,21 +41,16 @@ function SignUp() {
       setLogin('');
       setPassword('');
       setPasswordRepeat('');
-      setUser(res.data.data);
     })
   }
 
   const addNewUser = () => {
     if (password !== passwordRepeat) {
       setAlert('error');
-      setPassword('');
-      setPasswordRepeat('');
       setErrorText('Пароли не совпадают!');
       setError(true);
     } else if (password.match(regexpPassword) === null) {
       setAlert('error');
-      setPassword('');
-      setPasswordRepeat('');
       setErrorText(`
                 Пароль должен содержать:
                 - длину строки, не менее 6 символов; 
@@ -69,13 +63,13 @@ function SignUp() {
       setError(true);
     } else {
       registerUser();
-      setLogin('');
-      setPassword('');
-      setPasswordRepeat('');
       setAlert('success');
       setErrorText('Пользователь зарегистрирован!');
       setError(true);
     }
+    setLogin('');
+    setPassword('');
+    setPasswordRepeat('');
   }
 
   return (
@@ -128,7 +122,7 @@ function SignUp() {
             variant="outlined"
             onClick={() => {
               addNewUser();
-              }
+            }
             }
           >
             Зарегистрироваться

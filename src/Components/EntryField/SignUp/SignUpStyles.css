@@ -61,6 +61,7 @@ p {
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  text-transform: capitalize;
 }
 
 .authorization-btn.MuiButton-root {
@@ -69,4 +70,5 @@ p {
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  text-transform: capitalize;
 }
