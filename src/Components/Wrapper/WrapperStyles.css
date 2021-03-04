@@ -1,8 +1,8 @@
 .wrapper {
-  background-color: #E5E5E5;
   display: flex;
   justify-content: flex-end;
   padding: 5% 10%;
+
 }
 
 .logo-wrapper {

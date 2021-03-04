@@ -13,25 +13,25 @@ function Alert(props) {
 }
 
 function SignUp() {
+  const regexpLogin = /.{6,}/;
+  const regexpPassword = /[A-Za-z0-9]{6,}\d/;
   const [user, setUser] = useState([]);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
-  const [openPassword, setErrorPassword] = React.useState(false);
-  const [openLogin, setErrorLogin] = React.useState(false);
+  const [openError, setError] = React.useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
 
   const handleClick = () => {
-    setErrorPassword(true);
-    openLogin(true);
+    setError(true);
   }
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
-    setErrorPassword(false);
-    openLogin(false);
+    setError(false);
   }
 
   const registerUser = async () => {
@@ -46,11 +46,37 @@ function SignUp() {
     })
   }
 
-  // const checkLogin = () => {
-  //   if (login.length < 6) {
-  //     setErrorLogin(true);
-  //   }
-  // }
+  const addNewUser = () => {
+    if (password !== passwordRepeat) {
+      setAlert('error');
+      setPassword('');
+      setPasswordRepeat('');
+      setErrorText('Пароли не совпадают!');
+      setError(true);
+    } else if (password.match(regexpPassword) === null) {
+      setAlert('error');
+      setPassword('');
+      setPasswordRepeat('');
+      setErrorText(`
+                Пароль должен содержать:
+                - длину строки, не менее 6 символов; 
+                - только латинские символы; 
+                - хотя бы 1 число.`);
+      setError(true);
+    } else if (login.match(regexpLogin) === null) {
+      setAlert('error');
+      setErrorText('Логин слишком короткий! *(требуется не менее 6 символов)');
+      setError(true);
+    } else {
+      registerUser();
+      setLogin('');
+      setPassword('');
+      setPasswordRepeat('');
+      setAlert('success');
+      setErrorText('Пользователь зарегистрирован!');
+      setError(true);
+    }
+  }
 
   return (
     <div className="sign-up">
@@ -101,24 +127,19 @@ function SignUp() {
             className='register-btn'
             variant="outlined"
             onClick={() => {
-              if (password === passwordRepeat) {
-                registerUser();
-              } else {
-                setPassword('');
-                setPasswordRepeat('');
-                setErrorPassword(true);
+              addNewUser();
               }
-            }
             }
           >
             Зарегистрироваться
           </Button>
           <Button className='authorization-btn'>Авторизоваться</Button>
-          <Snackbar open={openPassword} autoHideDuration={6000} onClose={handleClose}>
-            <Alert severity="error">Пароли не совпадают!</Alert>
-          </Snackbar>
-          <Snackbar open={openLogin} autoHideDuration={6000} onClose={handleClose}>
-            <Alert severity="error">Выберете другой логин!</Alert>
+          <Snackbar
+            open={openError}
+            autoHideDuration={6000}
+            onClose={handleClose}
+          >
+            <Alert severity={alert}>{errorText}</Alert>
           </Snackbar>
         </div>
       </div>
