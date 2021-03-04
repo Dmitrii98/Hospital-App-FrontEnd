@@ -34,14 +34,19 @@ function SignUp() {
   }
 
   const registerUser = async () => {
-    await axios.post('http://localhost:8000/createUser', {
-      login,
-      password
-    }).then(res => {
-      setLogin('');
-      setPassword('');
-      setPasswordRepeat('');
-    })
+    try {
+      await axios.post('http://localhost:8000/createUser', {
+        login,
+        password,
+      })
+      setAlert('success');
+      setErrorText('Пользователь зарегистрирован!');
+      setError(true);
+    } catch (e) {
+      setAlert('error');
+      setErrorText('Такой пользователь уже существует!');
+      setError(true);
+    }
   }
 
   const addNewUser = () => {
@@ -63,9 +68,6 @@ function SignUp() {
       setError(true);
     } else {
       registerUser();
-      setAlert('success');
-      setErrorText('Пользователь зарегистрирован!');
-      setError(true);
     }
     setLogin('');
     setPassword('');
@@ -128,7 +130,12 @@ function SignUp() {
           >
             Зарегистрироваться
           </Button>
-          <Button disabled={!login || !password || !passwordRepeat} className='authorization-btn'>Авторизоваться</Button>
+          <Button
+            disabled={!login || !password || !passwordRepeat}
+            className='authorization-btn'
+          >
+            Авторизоваться
+          </Button>
           <Snackbar
             open={openError}
             autoHideDuration={6000}
