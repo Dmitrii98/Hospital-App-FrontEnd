@@ -1,11 +1,77 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from "axios";
 import {
   TextField,
-  Button
+  Button,
+  Snackbar
 } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import SignUpStyles from './SignUpStyles.css';
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 function SignUp() {
+  const regexpLogin = /.{6,}/;
+  const regexpPassword = /(?=.*[0-9])[A-Za-z0-9]{5,}/;
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [openError, setError] = React.useState(false);
+  const [errorText, setErrorText] = useState(false);
+  const [alert, setAlert] = useState('');
+
+  const handleClick = () => {
+    setError(true);
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setError(false);
+  }
+
+  const registerUser = async () => {
+    await axios.post('http://localhost:8000/createUser', {
+      login,
+      password
+    }).then(res => {
+      setLogin('');
+      setPassword('');
+      setPasswordRepeat('');
+    })
+  }
+
+  const addNewUser = () => {
+    if (password !== passwordRepeat) {
+      setAlert('error');
+      setErrorText('Пароли не совпадают!');
+      setError(true);
+    } else if (password.match(regexpPassword) === null) {
+      setAlert('error');
+      setErrorText(`
+                Пароль должен содержать:
+                - длину строки, не менее 6 символов; 
+                - только латинские символы; 
+                - хотя бы 1 число.`);
+      setError(true);
+    } else if (login.match(regexpLogin) === null) {
+      setAlert('error');
+      setErrorText('Логин слишком короткий! *(требуется не менее 6 символов)');
+      setError(true);
+    } else {
+      registerUser();
+      setAlert('success');
+      setErrorText('Пользователь зарегистрирован!');
+      setError(true);
+    }
+    setLogin('');
+    setPassword('');
+    setPasswordRepeat('');
+  }
+
   return (
     <div className="sign-up">
       <h2 className='header-text'>
@@ -15,10 +81,13 @@ function SignUp() {
         <div className='login'>
           <p>Login:</p>
           <TextField
-            id="outlined-basic"
+            type='text'
+            id='outlined-basic'
             className='login-input'
-            variant="outlined"
+            variant='outlined'
             placeholder='Login'
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
           />
         </div>
         <div className='password'>
@@ -30,6 +99,8 @@ function SignUp() {
             className='password-input'
             variant="outlined"
             placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className='password'>
@@ -41,16 +112,30 @@ function SignUp() {
             className='password-input'
             variant="outlined"
             placeholder='Repeat password'
+            value={passwordRepeat}
+            onChange={(e) => setPasswordRepeat(e.target.value)}
           />
         </div>
         <div className='buttons'>
           <Button
             className='register-btn'
             variant="outlined"
+            disabled={!login || !password || !passwordRepeat}
+            onClick={() => {
+              addNewUser();
+            }
+            }
           >
             Зарегистрироваться
           </Button>
-          <Button className='authorization-btn'>Авторизоваться</Button>
+          <Button disabled={!login || !password || !passwordRepeat} className='authorization-btn'>Авторизоваться</Button>
+          <Snackbar
+            open={openError}
+            autoHideDuration={6000}
+            onClose={handleClose}
+          >
+            <Alert severity={alert}>{errorText}</Alert>
+          </Snackbar>
         </div>
       </div>
     </div>
