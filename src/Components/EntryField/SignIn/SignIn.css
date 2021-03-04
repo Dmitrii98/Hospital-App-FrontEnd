@@ -21,10 +21,6 @@ p {
   line-height: 21px;
 }
 
-a {
-  text-decoration: none;
-}
-
 /*===================================
 ==============Input=================
 ====================================*/
@@ -58,8 +54,8 @@ a {
   flex-wrap: wrap;
 }
 
-.register-btn.MuiButton-root {
-  margin: 20px 0;
+.enter-btn.MuiButton-root {
+  margin: 40px 0 20px 0;
   padding: 7px 50px;
   font-family: 'Roboto';
   font-style: normal;
@@ -69,11 +65,12 @@ a {
   text-transform: capitalize;
 }
 
-.authorization-btn.MuiButton-root {
+.sign-up-btn.MuiButton-root {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
   text-transform: capitalize;
+  padding-right: 0;
 }

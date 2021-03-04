@@ -6,6 +6,7 @@ import {
   Snackbar
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
+import {Link} from 'react-router-dom';
 import SignUpStyles from './SignUpStyles.css';
 
 function Alert(props) {
@@ -38,7 +39,7 @@ function SignUp() {
       await axios.post('http://localhost:8000/createUser', {
         login,
         password,
-      })
+      });
       setAlert('success');
       setErrorText('Пользователь зарегистрирован!');
       setError(true);
@@ -130,17 +131,22 @@ function SignUp() {
           >
             Зарегистрироваться
           </Button>
-          <Button
-            disabled={!login || !password || !passwordRepeat}
-            className='authorization-btn'
-          >
-            Авторизоваться
-          </Button>
+          <Link to='/signIn'>
+            <Button
+              className='authorization-btn'
+              >
+              Авторизоваться
+            </Button>
+          </Link>
           <Snackbar
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
             open={openError}
             autoHideDuration={6000}
             onClose={handleClose}
-          >
+            >
             <Alert severity={alert}>{errorText}</Alert>
           </Snackbar>
         </div>
