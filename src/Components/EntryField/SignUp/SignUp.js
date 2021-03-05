@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import {
   TextField,
@@ -6,8 +6,8 @@ import {
   Snackbar
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import {Link} from 'react-router-dom';
-import SignUpStyles from './SignUpStyles.css';
+import { Link } from 'react-router-dom';
+import './SignUpStyles.css';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -36,7 +36,7 @@ function SignUp() {
 
   const registerUser = async () => {
     try {
-      await axios.post('http://localhost:8000/createUser', {
+      const res = await axios.post('http://localhost:8000/createUser', {
         login,
         password,
       });
@@ -50,7 +50,7 @@ function SignUp() {
     }
   }
 
-  const addNewUser = () => {
+  const checkUser = () => {
     if (password !== passwordRepeat) {
       setAlert('error');
       setErrorText('Пароли не совпадают!');
@@ -125,8 +125,8 @@ function SignUp() {
             variant="outlined"
             disabled={!login || !password || !passwordRepeat}
             onClick={() => {
-              addNewUser();
-            }
+              checkUser();
+              }
             }
           >
             Зарегистрироваться
@@ -146,7 +146,7 @@ function SignUp() {
             open={openError}
             autoHideDuration={6000}
             onClose={handleClose}
-            >
+          >
             <Alert severity={alert}>{errorText}</Alert>
           </Snackbar>
         </div>

@@ -1,8 +1,11 @@
 import React from 'react';
 import SignUp from "./SignUp/SignUp";
 import SignIn from "./SignIn/SignIn";
-import {Switch, Route} from 'react-router-dom'
-import EntryFieldStyles from './EntryFieldStyles.css';
+import {
+  Switch,
+  Route
+} from 'react-router-dom';
+import './EntryFieldStyles.css';
 
 function EntryField() {
   return (

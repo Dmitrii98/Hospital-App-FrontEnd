@@ -9,3 +9,14 @@
   font-size: 36px;
   font-weight: 300;
 }
+
+.left-side{
+  display: flex;
+  align-items: center;
+}
+
+.toolbar.MuiToolbar-root{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 4vw;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../Header/Header";
 import Wrapper from "../Wrapper/Wrapper";
-import LoginStyles from './Login.css';
+import './Login.css';
 
 function Login() {
   return (

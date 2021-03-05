@@ -1,9 +1,7 @@
 import React from 'react';
 import Header from "../Header/Header";
 import Wrapper from "../Wrapper/Wrapper";
-import RegisterStyles from './RegisterStyles.css';
-import SignUp from "../EntryField/SignUp/SignUp";
-import SignIn from "../EntryField/SignIn/SignIn";
+import './RegisterStyles.css';
 
 function Register() {
   return (
