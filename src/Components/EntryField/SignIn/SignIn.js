@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import './SignIn.css';
+import {render} from "@testing-library/react";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -46,7 +47,8 @@ function SignIn() {
         password,
       });
       localStorage.setItem('user', res.data);
-      history.push(`/main`);
+      history.push('/main');
+      window.location.reload();
     } catch (e) {
       setAlert('error');
       setErrorText('Данные введены неверно!');

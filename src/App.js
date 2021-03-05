@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Register from "./Components/RegisterPage/Register";
 import Login from "./Components/LoginPage/Login";
 import Main from "./Components/Main/Main";
@@ -19,11 +19,14 @@ function App() {
         <Route path='/signIn'>
           <Login/>
         </Route>
-        {localStorage.getItem('user')
-          ? <Route path='/main' component={Main}/>
-          : <Route path='/signIn'/>}
-        <Redirect from='/' to='/signIn'/>
+        <Route path='/main'>
+          <Main/>
+        </Route>
       </Switch>
+      {localStorage.getItem('user')
+        ? <Switch><Redirect to='/main'/></Switch>
+        : <Switch><Redirect from='/' to='/signIn'/></Switch>
+      }
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "../Header/Header";
-import { useHistory } from 'react-router-dom';
+import InputField from "./InputField/InputField";
+import {useHistory} from 'react-router-dom';
 import {
   Button
 } from '@material-ui/core';
@@ -9,14 +10,15 @@ import './MainStyles.css';
 function Main() {
   const history = useHistory();
 
-  const logOut = () =>{
+  const logOut = () => {
     localStorage.removeItem('user')
     history.push('/singIn')
+    window.location.reload();
   }
 
   return (
     <div className="main">
-      <Header name='Вы вошли в систему'>
+      <Header name='Приемы'>
         <Button
           className='logout-btn'
           onClick={() => logOut()}
@@ -24,6 +26,7 @@ function Main() {
           Выйти
         </Button>
       </Header>
+      <InputField/>
     </div>
   );
 }

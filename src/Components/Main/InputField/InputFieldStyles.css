@@ -1,0 +1,42 @@
+/*===================================
+==============Input=================
+====================================*/
+.main {
+  width: 100%;
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  margin-top: 3%;
+}
+
+.item-input {
+  width: 24%;
+}
+
+.MuiOutlinedInput-input {
+  padding: 3% 5% !important;
+}
+
+.input.MuiTextField-root {
+  width: 100%;
+  background-color: #fff;
+}
+
+/*===================================
+==============Button=================
+====================================*/
+
+add-btn.MuiButton-root {
+  margin: 40px 0 20px 0;
+  padding: 7px 50px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: capitalize;
+  background: #fff;
+}
