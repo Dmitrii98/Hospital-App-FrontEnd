@@ -6,6 +6,7 @@ import {
   Button
 } from '@material-ui/core';
 import './MainStyles.css';
+import Appointment from "./Appointments/Appointment";
 
 function Main() {
   const history = useHistory();
@@ -27,6 +28,7 @@ function Main() {
         </Button>
       </Header>
       <InputField/>
+      <Appointment/>
     </div>
   );
 }

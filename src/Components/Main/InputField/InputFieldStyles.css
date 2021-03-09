@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+div.MuiTextField-root {
+  border-radius: 4px;
+}
+
 .input-field {
   display: flex;
   justify-content: space-between;
@@ -14,10 +18,11 @@
 
 .item-input {
   width: 24%;
+  margin-left: 0.7vw;
 }
 
-.MuiOutlinedInput-input {
-  padding: 3% 5% !important;
+.input.MuiOutlinedInput-input {
+  padding: 3.5% 5%;
 }
 
 .input.MuiTextField-root {
@@ -29,9 +34,8 @@
 ==============Button=================
 ====================================*/
 
-add-btn.MuiButton-root {
-  margin: 40px 0 20px 0;
-  padding: 7px 50px;
+.add-btn.MuiButton-root {
+  padding: 1vh 1.2vw;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
@@ -39,4 +43,11 @@ add-btn.MuiButton-root {
   line-height: 21px;
   text-transform: capitalize;
   background: #fff;
+  margin-left: 1vw;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: flex;
+  align-items: flex-end;
 }

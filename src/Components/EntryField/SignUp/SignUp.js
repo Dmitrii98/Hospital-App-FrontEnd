@@ -82,7 +82,7 @@ function SignUp() {
       </h2>
       <div className='input-fields'>
         <div className='login'>
-          <p>Login:</p>
+          <p className='login-p'>Login:</p>
           <TextField
             type='text'
             id='outlined-basic'
@@ -94,7 +94,7 @@ function SignUp() {
           />
         </div>
         <div className='password'>
-          <p>Password:</p>
+          <p className='password-p'>Password:</p>
           <TextField
             id="outlined-basic"
             type="password"
@@ -107,7 +107,7 @@ function SignUp() {
           />
         </div>
         <div className='password'>
-          <p>Repeat password:</p>
+          <p className='repeat-password-p'>Repeat password:</p>
           <TextField
             id="outlined-basic"
             type="password"

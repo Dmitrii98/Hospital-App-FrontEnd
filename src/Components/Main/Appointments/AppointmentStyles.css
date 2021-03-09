@@ -1,0 +1,54 @@
+/*===================================
+==============div====================
+====================================*/
+
+.all-appointments {
+  padding: 0 10%;
+  margin-top: 3%;
+}
+
+.item-appointment {
+  display: flex;
+  width: 100%;
+}
+
+/*===================================
+==============Table==================
+====================================*/
+
+th {
+  text-align: center;
+  background: #C4C4C4;
+}
+
+/*===================================
+==============Button=================
+====================================*/
+
+.btns {
+  width: 7vw;
+}
+
+/*===================================
+==============Modal=================
+====================================*/
+
+.opened-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper {
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.modal-appBar.MuiAppBar-root {
+  width: 50vw;
+}
+
+.modal-header {
+  text-decoration: none;
+  border: none;
+}

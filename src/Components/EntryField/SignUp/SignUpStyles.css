@@ -21,9 +21,14 @@ p {
   line-height: 21px;
 }
 
-a {
+.repeat-password-p {
+  margin: 5% 0;
+}
+
+a.link {
   text-decoration: none;
 }
+
 
 /*===================================
 ==============Input=================

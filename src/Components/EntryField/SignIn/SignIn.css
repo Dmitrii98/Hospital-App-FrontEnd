@@ -10,15 +10,28 @@
   line-height: 42px;
   color: #000;
   padding: 0 20%;
+  margin: 5% 0;
 }
 
 p {
-  margin-bottom: 10px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  margin: 10px 0;
+}
+
+.login-p {
+  margin: 5% 0;
+}
+
+.password-p {
+  margin: 5% 0;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 /*===================================
@@ -74,3 +87,4 @@ p {
   text-transform: capitalize;
   padding-right: 0;
 }
+

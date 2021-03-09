@@ -73,7 +73,7 @@ function SignIn() {
       </h2>
       <div className='input-fields'>
         <div className='login'>
-          <p>Login:</p>
+          <p className='login-p'>Login:</p>
           <TextField
             type='text'
             id='outlined-basic'
@@ -85,7 +85,7 @@ function SignIn() {
           />
         </div>
         <div className='password'>
-          <p>Password:</p>
+          <p className='password-p'>Password:</p>
           <TextField
             id="outlined-basic"
             type="password"
