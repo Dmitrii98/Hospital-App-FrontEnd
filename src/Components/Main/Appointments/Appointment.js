@@ -16,19 +16,11 @@ function Appointment() {
   const [open, setOpen] = React.useState(false);
   const [openDelete, setOpenDelete] = React.useState(false);
   const [indexEdit, setIndexEdit] = useState(-1);
-  const [editName, setEditName] = useState('');
-  const [editDoctor, setEditDoctor] = useState('');
-  const [editDate, setEditDate] = useState('');
-  const [editComplaint, setEditComplaint] = useState('');
   const [sort, setSort] = useState('');
   const [sortType, setSortType] = useState('По возрастанию');
 
   const handleClickOpen = (index) => {
     setIndexEdit(index);
-    setEditName(appointments[index].fullName);
-    setEditDoctor(appointments[index].doctor);
-    setEditDate(appointments[index].date);
-    setEditComplaint(appointments[index].complaint);
     setOpen(true);
   };
 
@@ -136,18 +128,7 @@ function Appointment() {
             <ModalEdit
               open={open}
               close={handleClose}
-              fullName={editName}
-              fullNameEdit={setEditName}
-              doctor={editDoctor}
-              doctorEdit={setEditDoctor}
-              date={editDate}
-              dateEdit={setEditDate}
-              complaint={editComplaint}
-              complaintEdit={setEditComplaint}
-              appointments={appointments}
-              setAppointments={setAppointments}
-              indexEdit={indexEdit}
-              setIndexEdit={setIndexEdit}
+              appointments={appointments[indexEdit] || {}}
             />
             <ModalDelete
               close={handleCloseDelete}

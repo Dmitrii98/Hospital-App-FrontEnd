@@ -12,6 +12,10 @@ import {
 import './ModalEditStyles.css';
 
 function ModalEdit(props) {
+  const [editName, setEditName] = useState(props.appointments.fullName);
+  const [editDoctor, setEditDoctor] = useState(props.appointments.doctor);
+  const [editDate, setEditDate] = useState(props.appointments.date);
+  const [editComplaint, setEditComplaint] = useState(props.appointments.complaint);
 
   const doctors = [
     {name: "Доктор Курпатов"},
@@ -24,19 +28,16 @@ function ModalEdit(props) {
 
   const editAppointment = async () => {
     await axios.patch(`http://localhost:8000/updateAppointment`, {
-        _id: props.appointments[props.indexEdit]._id,
-        fullName: props.fullName,
-        doctor: props.doctor,
-        date: props.date,
-        complaint: props.complaint
+        _id: props.appointments._id,
+        fullName: editName,
+        doctor: editDoctor,
+        date: editDate,
+        complaint: editComplaint
       },
     ).then(res => {
-      props.setAppointments(res.data.data);
-      props.setIndexEdit(-1);
       props.close();
     });
   }
-
   return (
     <div className="Modal">
       <Dialog
@@ -53,8 +54,8 @@ function ModalEdit(props) {
             variant='outlined'
             type="text"
             className='fullName-input'
-            value={props.fullName}
-            onChange={(e) => props.fullNameEdit(e.target.value)}
+            value={editName || props.appointments.fullName}
+            onChange={(e) => setEditName(e.target.value)}
           />
           <p className='doctor'>Доктор:</p>
           <TextField
@@ -62,8 +63,8 @@ function ModalEdit(props) {
             className='doctor-input'
             select
             type='text'
-            value={props.doctor}
-            onChange={(e) => props.doctorEdit(e.target.value)}
+            value={editDoctor || props.appointments.doctor}
+            onChange={(e) => setEditDoctor(e.target.value)}
             variant="outlined"
             size="small"
           >
@@ -79,8 +80,8 @@ function ModalEdit(props) {
             variant='outlined'
             type="date"
             className='date-input'
-            value={props.date}
-            onChange={(e) => props.dateEdit(e.target.value)}
+            value={editDate || props.appointments.date}
+            onChange={(e) => setEditDate(e.target.value)}
           />
           <p className='complaint'>Жалобы:</p>
           <TextField
@@ -88,8 +89,8 @@ function ModalEdit(props) {
             variant='outlined'
             type="text"
             className='complaint-input'
-            value={props.complaint}
-            onChange={(e) => props.complaintEdit(e.target.value)}
+            value={editComplaint || props.appointments.complaint}
+            onChange={(e) => setEditComplaint(e.target.value)}
           />
           <hr/>
         </DialogContent>
