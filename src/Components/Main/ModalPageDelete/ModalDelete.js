@@ -5,27 +5,32 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
-  MenuItem,
-  TextField
+  DialogTitle
 } from '@material-ui/core';
 import './ModalDeleteStyles.css';
 
-function ModalDelete(props) {
-
+function ModalDelete(
+  {
+    close,
+    open,
+    indexEdit,
+    setIndexEdit,
+    appointments,
+    setAppointments
+  }) {
   const deleteItem = async () => {
-    await axios.delete(`http://localhost:8000/deleteAppointment?id=${props.appointments[props.indexEdit]._id}`,
+    await axios.delete(`http://localhost:8000/deleteAppointment?id=${appointments[indexEdit]._id}`,
     ).then(res => {
-      props.setAppointments(res.data.data);
-      props.setIndexEdit(-1);
-      props.close();
+      setAppointments(res.data.data);
+      setIndexEdit(-1);
+      close();
     });
   }
   return (
     <div className="Modal">
       <Dialog
-        open={props.open}
-        onClose={props.open}
+        open={open}
+        onClose={() => close()}
         aria-labelledby="form-dialog-title"
         className='dialog'
       >
@@ -36,7 +41,7 @@ function ModalDelete(props) {
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={() => props.close()}
+            onClick={() => close()}
             variant="outlined"
             className='cancel-btn'
           >

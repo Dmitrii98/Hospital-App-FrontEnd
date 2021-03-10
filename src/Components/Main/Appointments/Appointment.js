@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import Table from 'react-bootstrap/Table';
 import axios from "axios";
-import ModalEdit from "../ModalPage/ModalEdit";
-import Sort from "../Sort/Sort";
-import {
-  IconButton,
-} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import Table from 'react-bootstrap/Table';
-import './AppointmentStyles.css';
+import Sort from "../Sort/Sort";
+import ModalEdit from "../ModalPage/ModalEdit";
 import ModalDelete from "../ModalPageDelete/ModalDelete";
+import './AppointmentStyles.css';
 
 function Appointment() {
   const [appointments, setAppointments] = useState([]);

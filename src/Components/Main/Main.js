@@ -1,12 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 import Header from "../Header/Header";
 import InputField from "./InputField/InputField";
-import {useHistory} from 'react-router-dom';
-import {
-  Button
-} from '@material-ui/core';
-import './MainStyles.css';
 import Appointment from "./Appointments/Appointment";
+import './MainStyles.css';
 
 function Main() {
   const history = useHistory();

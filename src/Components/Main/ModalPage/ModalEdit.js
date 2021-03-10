@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import {
   Button,
@@ -11,11 +11,16 @@ import {
 } from '@material-ui/core';
 import './ModalEditStyles.css';
 
-function ModalEdit(props) {
-  const [editName, setEditName] = useState(props.appointments.fullName);
-  const [editDoctor, setEditDoctor] = useState(props.appointments.doctor);
-  const [editDate, setEditDate] = useState(props.appointments.date);
-  const [editComplaint, setEditComplaint] = useState(props.appointments.complaint);
+function ModalEdit(
+  {
+    open,
+    close,
+    appointments
+  }) {
+  const [editName, setEditName] = useState(appointments.fullName);
+  const [editDoctor, setEditDoctor] = useState(appointments.doctor);
+  const [editDate, setEditDate] = useState(appointments.date);
+  const [editComplaint, setEditComplaint] = useState(appointments.complaint);
 
   const doctors = [
     {name: "Доктор Курпатов"},
@@ -28,21 +33,22 @@ function ModalEdit(props) {
 
   const editAppointment = async () => {
     await axios.patch(`http://localhost:8000/updateAppointment`, {
-        _id: props.appointments._id,
+        _id: appointments._id,
         fullName: editName,
         doctor: editDoctor,
         date: editDate,
         complaint: editComplaint
       },
-    ).then(res => {
-      props.close();
+    ).then(() => {
+      close();
     });
   }
+
   return (
     <div className="Modal">
       <Dialog
-        open={props.open}
-        onClose={props.open}
+        open={open}
+        onClose={() => close()}
         aria-labelledby="form-dialog-title"
         className='dialog'
       >
@@ -54,7 +60,7 @@ function ModalEdit(props) {
             variant='outlined'
             type="text"
             className='fullName-input'
-            value={editName || props.appointments.fullName}
+            value={editName || appointments.fullName}
             onChange={(e) => setEditName(e.target.value)}
           />
           <p className='doctor'>Доктор:</p>
@@ -63,7 +69,7 @@ function ModalEdit(props) {
             className='doctor-input'
             select
             type='text'
-            value={editDoctor || props.appointments.doctor}
+            value={editDoctor || appointments.doctor}
             onChange={(e) => setEditDoctor(e.target.value)}
             variant="outlined"
             size="small"
@@ -80,7 +86,7 @@ function ModalEdit(props) {
             variant='outlined'
             type="date"
             className='date-input'
-            value={editDate || props.appointments.date}
+            value={editDate || appointments.date}
             onChange={(e) => setEditDate(e.target.value)}
           />
           <p className='complaint'>Жалобы:</p>
@@ -89,14 +95,14 @@ function ModalEdit(props) {
             variant='outlined'
             type="text"
             className='complaint-input'
-            value={editComplaint || props.appointments.complaint}
+            value={editComplaint || appointments.complaint}
             onChange={(e) => setEditComplaint(e.target.value)}
           />
           <hr/>
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={() => props.close()}
+            onClick={() => close()}
             variant="outlined"
             className='cancel-btn'
           >

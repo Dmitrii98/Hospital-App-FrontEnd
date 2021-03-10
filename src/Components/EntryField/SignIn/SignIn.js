@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
-import {
-  Route,
-  Switch,
-  Link,
-  useHistory
-} from 'react-router-dom';
 import {
   TextField,
   Button,
@@ -13,7 +8,6 @@ import {
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import './SignIn.css';
-import {render} from "@testing-library/react";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
