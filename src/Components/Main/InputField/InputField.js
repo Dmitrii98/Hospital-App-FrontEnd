@@ -92,7 +92,6 @@ function InputField() {
             onChange={(e) => setComplaint(e.target.value)}
           />
         </div>
-        <div className='btn'>
           <Button
             className='add-btn'
             variant="outlined"
@@ -103,7 +102,6 @@ function InputField() {
           >
             Добавить
           </Button>
-        </div>
       </div>
     </div>
   );

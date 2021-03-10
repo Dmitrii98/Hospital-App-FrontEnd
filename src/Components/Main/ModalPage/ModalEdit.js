@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {
   Button,
@@ -24,11 +24,11 @@ function ModalEdit(props) {
 
   const editAppointment = async () => {
     await axios.patch(`http://localhost:8000/updateAppointment`, {
-      _id: props.appointments[props.indexEdit]._id,
-      fullName: props.fullName,
-      doctor: props.doctor,
-      date: props.date,
-      complaint: props.complaint
+        _id: props.appointments[props.indexEdit]._id,
+        fullName: props.fullName,
+        doctor: props.doctor,
+        date: props.date,
+        complaint: props.complaint
       },
     ).then(res => {
       props.setAppointments(res.data.data);

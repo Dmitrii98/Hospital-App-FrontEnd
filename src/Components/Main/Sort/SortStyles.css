@@ -1,0 +1,51 @@
+.sort {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10%;
+  margin-top: 4vh;
+  align-items: center;
+}
+
+.sortType {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  align-items: center;
+}
+
+.input-sort {
+  background: #fff;
+  width: 20%;
+}
+
+.input-sortType {
+  background: #fff;
+  width: 100%;
+}
+
+
+.text-sort {
+  margin: 0 1vw 0 0;
+}
+
+.textSortType {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 1vw 0 0;
+  width: 100%;
+}
+
+.filter{
+  display: flex;
+  align-items: center;
+  margin-left: 2vw;
+}
+
+.text-filter{
+margin-bottom: 0;
+}
+
+.add-filter{
+  display: flex;
+  align-items: center;
+}

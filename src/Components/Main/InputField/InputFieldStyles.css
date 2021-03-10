@@ -12,6 +12,7 @@ div.MuiTextField-root {
 .input-field {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 0 10%;
   margin-top: 3%;
 }
@@ -35,7 +36,7 @@ div.MuiTextField-root {
 ====================================*/
 
 .add-btn.MuiButton-root {
-  padding: 1vh 1.2vw;
+  padding: 20px 30px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
@@ -45,9 +46,5 @@ div.MuiTextField-root {
   background: #fff;
   margin-left: 1vw;
   justify-content: flex-end;
-}
-
-.btn {
-  display: flex;
-  justify-content: flex-end;
+  height: 0;
 }
