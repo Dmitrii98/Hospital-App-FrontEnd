@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import Appointment from "../Appointments/Appointment";
 import {
   Button,
   MenuItem,
@@ -8,44 +7,7 @@ import {
   Select,
   TextField
 } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
 import './InputFieldStyles.css';
-
-const BootstrapInput = withStyles((theme) => ({
-  root: {
-    'label + &': {
-      marginTop: theme.spacing(),
-    },
-  },
-  input: {
-    width: '15.2vw',
-    borderRadius: 4,
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: '1px solid rgba(0, 0, 0, 0.23)',
-    fontSize: 16,
-    padding: '10px 26px 10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      borderRadius: 4,
-      borderColor: '#3f51b5',
-      backgroundColor: '#fff',
-    },
-  },
-}))(InputBase);
 
 function InputField() {
   const [fullName, setFullName] = useState('');
@@ -60,7 +22,7 @@ function InputField() {
     {name: "Доктор Стрэндж"},
     {name: "Доктор Дулиттл"},
     {name: "Доктор Сон"},
-    ];
+  ];
 
   const addNewAppointment = async () => {
     await axios.post('http://localhost:8000/createAppointment', {
@@ -134,10 +96,11 @@ function InputField() {
           <Button
             className='add-btn'
             variant="outlined"
+            disabled={!fullName || !doctor || !date || !complaint}
             onClick={() =>
               addNewAppointment()
-              }
-            >
+            }
+          >
             Добавить
           </Button>
         </div>

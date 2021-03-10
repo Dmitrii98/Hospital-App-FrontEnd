@@ -2,6 +2,8 @@ import React from 'react';
 import Register from "./Components/RegisterPage/Register";
 import Login from "./Components/LoginPage/Login";
 import Main from "./Components/Main/Main";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
   Switch,
   Route,

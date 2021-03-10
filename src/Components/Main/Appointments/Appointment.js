@@ -1,26 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import ModalEdit from "../ModalPage/ModalEdit";
 import {
   IconButton,
-  Modal,
-  Backdrop,
-  Fade,
-  AppBar,
-  Toolbar,
-  Typography,
-  TextField
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import Table from 'react-bootstrap/Table'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Table from 'react-bootstrap/Table';
 import './AppointmentStyles.css';
 
 function Appointment() {
   const [appointments, setAppointments] = useState([]);
   const [open, setOpen] = React.useState(false);
+  const [indexEdit, setIndexEdit] = useState(-1);
+  const [editName, setEditName] = useState('');
+  const [editDoctor, setEditDoctor] = useState('');
+  const [editDate, setEditDate] = useState('');
+  const [editComplaint, setEditComplaint] = useState('');
 
-  const handleOpen = () => {
+  const handleClickOpen = (index) => {
+    setIndexEdit(index);
+    setEditName(appointments[index].fullName);
+    setEditDoctor(appointments[index].doctor);
+    setEditDate(appointments[index].date);
+    setEditComplaint(appointments[index].complaint);
     setOpen(true);
   };
 
@@ -31,14 +34,14 @@ function Appointment() {
   useEffect(async () => {
     await axios.get('http://localhost:8000/allAppointments').then(res => {
       setAppointments(res.data.data);
-    })
+    });
   })
 
   const deleteItem = async (index) => {
     await axios.delete(`http://localhost:8000/deleteAppointment?id=${appointments[index]._id}`,
     ).then(res => {
       setAppointments(res.data.data);
-    })
+    });
   }
 
   return (
@@ -65,36 +68,30 @@ function Appointment() {
                 <IconButton aria-label="delete" onClick={() => deleteItem(index)}>
                   <DeleteIcon/>
                 </IconButton>
-                <IconButton aria-label="edit" onClick={handleOpen}>
+                <IconButton aria-label="edit" onClick={() => handleClickOpen(index)}>
                   <EditOutlinedIcon/>
                 </IconButton>
               </td>
             </tr>
+            <ModalEdit
+              open={open}
+              close={handleClose}
+              fullName={editName}
+              fullNameEdit={setEditName}
+              doctor={editDoctor}
+              doctorEdit={setEditDoctor}
+              date={editDate}
+              dateEdit={setEditDate}
+              complaint={editComplaint}
+              complaintEdit={setEditComplaint}
+              appointments={appointments}
+              setAppointments={setAppointments}
+              indexEdit={indexEdit}
+              setIndexEdit={setIndexEdit}
+            />
             </tbody>
           ))}
         </Table>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          className='opened-modal'
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <div className='paper'>
-              <AppBar className='modal-appBar' position="static">
-                <Toolbar>
-                  <h2 className='modal-header'>Изменить прием</h2>
-                </Toolbar>
-              </AppBar>
-            </div>
-          </Fade>
-        </Modal>
       </div>
     </div>
   );
