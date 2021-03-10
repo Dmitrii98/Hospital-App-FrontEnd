@@ -1,15 +1,15 @@
 import React from 'react';
 import Header from "../Header/Header";
 import Wrapper from "../Wrapper/Wrapper";
-import './RegisterStyles.css';
+import './Login.css';
 
-function Register() {
+function Login() {
   return (
     <div className="main">
-      <Header name='Зарегистрироваться в системе'/>
+      <Header name='Авторизоваться в системе'/>
       <Wrapper/>
     </div>
   );
 }
 
-export default Register;
+export default Login;

@@ -1,0 +1,37 @@
+.dialog {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#form-dialog-title .MuiTypography-h6 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.delete-btn.MuiButton-root {
+  background: rgba(197, 233, 255, 0.7);
+  width: 7vw;
+  height: 5vh;
+}
+
+.cancel-btn.MuiButton-root {
+  width: 7vw;
+  height: 5vh;
+}
+
+.delete-btn.MuiButton-root:hover {
+  background: rgba(197, 233, 255, 1);
+}
+
+p.text {
+  width: 30vw;
+  margin-bottom: 6vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}

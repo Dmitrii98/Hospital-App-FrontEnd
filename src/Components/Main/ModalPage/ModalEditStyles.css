@@ -1,0 +1,60 @@
+.dialog {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#form-dialog-title .MuiTypography-h6 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.fullName-input {
+  width: 30vw;
+}
+
+.doctor-input {
+  width: 30vw;
+}
+
+.date-input {
+  width: 30vw;
+}
+
+.complaint-input {
+  margin-bottom: 5vh;
+  width: 30vw;
+}
+
+.save-btn.MuiButton-root {
+  background: rgba(197, 233, 255, 0.7);
+  width: 7vw;
+  height: 5vh;
+}
+
+.cancel-btn.MuiButton-root {
+  width: 7vw;
+  height: 5vh;
+}
+
+.save-btn.MuiButton-root:hover {
+  background: rgba(197, 233, 255, 1);
+}
+
+p.name {
+  margin: 0 0 1vh 0;
+}
+
+p.doctor {
+  margin: 2vh 0 1vh 0;
+}
+
+p.date {
+  margin: 2vh 0 1vh 0;
+}
+
+p.complaint {
+  margin: 2vh 0 1vh 0;
+}

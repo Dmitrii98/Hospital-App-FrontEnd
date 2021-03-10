@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import {
   TextField,
@@ -6,19 +7,18 @@ import {
   Snackbar
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Link } from 'react-router-dom';
-import './SignUpStyles.css';
+import './SignIn.css';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function SignUp() {
+function SignIn() {
+  let history = useHistory();
   const regexpLogin = /.{6,}/;
   const regexpPassword = /(?=.*[0-9])[A-Za-z0-9]{5,}/;
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
   const [openError, setError] = React.useState(false);
   const [errorText, setErrorText] = useState(false);
   const [alert, setAlert] = useState('');
@@ -34,51 +34,36 @@ function SignUp() {
     setError(false);
   }
 
-  const registerUser = async () => {
+  const loginUser = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/createUser', {
+      const res = await axios.post('http://localhost:8000/loginUser', {
         login,
         password,
       });
-      setAlert('success');
-      setErrorText('Пользователь зарегистрирован!');
-      setError(true);
+      localStorage.setItem('user', res.data);
+      history.push('/main');
+      window.location.reload();
     } catch (e) {
       setAlert('error');
-      setErrorText('Такой пользователь уже существует!');
+      setErrorText('Данные введены неверно!');
       setError(true);
     }
   }
 
   const checkUser = () => {
-    if (password !== passwordRepeat) {
+    if ((password.match(regexpPassword) === null) || (login.match(regexpLogin) === null)) {
       setAlert('error');
-      setErrorText('Пароли не совпадают!');
-      setError(true);
-    } else if (password.match(regexpPassword) === null) {
-      setAlert('error');
-      setErrorText(`
-                Пароль должен содержать:
-                - длину строки, не менее 6 символов; 
-                - только латинские символы; 
-                - хотя бы 1 число.`);
-      setError(true);
-    } else if (login.match(regexpLogin) === null) {
-      setAlert('error');
-      setErrorText('Логин слишком короткий! *(требуется не менее 6 символов)');
+      setErrorText(`Логин или пароль введены неверно!`);
       setError(true);
     } else {
-      registerUser();
+      loginUser();
     }
-    setLogin('');
-    setPassword('');
-    setPasswordRepeat('');
   }
 
   return (
-    <div className="sign-up">
+    <div className="sign-in">
       <h2 className='header-text'>
-        Регистрация
+        Авторизация
       </h2>
       <div className='input-fields'>
         <div className='login'>
@@ -106,36 +91,23 @@ function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='password'>
-          <p className='repeat-password-p'>Repeat password:</p>
-          <TextField
-            id="outlined-basic"
-            type="password"
-            autoComplete="current-password"
-            className='password-input'
-            variant="outlined"
-            placeholder='Repeat password'
-            value={passwordRepeat}
-            onChange={(e) => setPasswordRepeat(e.target.value)}
-          />
-        </div>
         <div className='buttons'>
           <Button
-            className='register-btn'
+            className='enter-btn'
             variant="outlined"
-            disabled={!login || !password || !passwordRepeat}
+            disabled={!login || !password}
             onClick={() => {
               checkUser();
-              }
+            }
             }
           >
-            Зарегистрироваться
+            Войти
           </Button>
-          <Link to='/signIn'>
+          <Link to='/signUp'>
             <Button
-              className='authorization-btn'
-              >
-              Авторизоваться
+              className='sign-up-btn'
+            >
+              Зарегистрироваться
             </Button>
           </Link>
           <Snackbar
@@ -155,4 +127,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignIn;
