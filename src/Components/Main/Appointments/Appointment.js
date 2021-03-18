@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
-import { IconButton } from '@material-ui/core';
+import {IconButton} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import Sort from "../Sort/Sort";
@@ -16,6 +16,9 @@ function Appointment() {
   const [indexEdit, setIndexEdit] = useState(-1);
   const [sort, setSort] = useState('');
   const [sortType, setSortType] = useState('По возрастанию');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [startFilter, setStartFilter] = useState(false);
 
   const handleClickOpen = (index) => {
     setIndexEdit(index);
@@ -85,6 +88,25 @@ function Appointment() {
     }
   }
 
+  const filterByDate = ((item) => {
+      if (startFilter) {
+        const minDate = startDate;
+        const maxDate = endDate;
+        if ((item.date >= minDate) && (item.date <= maxDate)) {
+          return true;
+        }
+      }
+    }
+  )
+
+  const filterFun = () => {
+    return startFilter
+      ? appointments.filter(filterByDate).sort(sortFunc)
+      : appointments.sort(sortFunc)
+  }
+
+  const filterAppointment = filterFun();
+
   return (
     <div className="appointment">
       <hr/>
@@ -95,6 +117,12 @@ function Appointment() {
         setSort={setSort}
         sortType={sortType}
         setSortType={setSortType}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
+        startFilter={startFilter}
+        setStartFilter={setStartFilter}
       />
       <div className='all-appointments'>
         <Table striped bordered hover>
@@ -107,7 +135,7 @@ function Appointment() {
             <th></th>
           </tr>
           </thead>
-          {appointments.sort(sortFunc).map((item, index) => (
+          {filterAppointment.map((item, index) => (
             <tbody>
             <tr>
               <td>{item.fullName}</td>
@@ -137,7 +165,8 @@ function Appointment() {
               setAppointments={setAppointments}
             />
             </tbody>
-          ))}
+          ))
+          }
         </Table>
       </div>
     </div>
