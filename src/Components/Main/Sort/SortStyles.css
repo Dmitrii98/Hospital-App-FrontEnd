@@ -36,6 +36,7 @@
 }
 
 .filter {
+<<<<<<< Updated upstream
     display: flex;
     align-items: center;
     margin-left: 2vw;
@@ -99,4 +100,69 @@
 
 .delete-filter-btn.MuiIconButton-root{
     margin-left: 2.5vw;
+=======
+  display: flex;
+  align-items: center;
+  margin-left: 2vw;
+}
+
+.no-filter {
+  display: none;
+}
+
+.text-filter {
+  margin-bottom: 0;
+}
+
+.add-filter {
+  display: flex;
+  align-items: center;
+}
+
+.add-filter-properties {
+  display: flex;
+  padding: 0 10%;
+  margin-top: 2%;
+  align-items: center;
+}
+
+.item-date {
+  display: flex;
+  align-items: center;
+}
+
+.second-item-date {
+  margin-left: 2vw;
+}
+
+.MuiOutlinedInput-root {
+  padding: 2% 5%;
+}
+
+.input-date-filter.MuiTextField-root {
+  width: 15vw;
+  background-color: #fff;
+}
+
+.date-text {
+  margin: 0vh 1vw 0 0;
+  display: inline-block;
+}
+
+.add-filter-btn.MuiButton-root {
+  padding: 2.5vh 2vw;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: capitalize;
+  background: #fff;
+  margin-left: 3vw;
+  height: 0;
+}
+
+.delete-filter-btn.MuiIconButton-root {
+  margin-left: 2.5vw;
+>>>>>>> Stashed changes
 }

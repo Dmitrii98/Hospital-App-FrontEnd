@@ -88,6 +88,25 @@ function Appointment() {
     }
   }
 
+  const filterByDate = ((item) => {
+      if (startFilter) {
+        const minDate = startDate;
+        const maxDate = endDate;
+        if ((item.date >= minDate) && (item.date <= maxDate)) {
+          return true;
+        }
+      }
+    }
+  )
+
+  const filterFun = () => {
+    return startFilter
+      ? appointments.filter(filterByDate).sort(sortFunc)
+      : appointments.sort(sortFunc)
+  }
+
+  const filterAppointment = filterFun();
+
   return (
     <div className="appointment">
       <hr/>
@@ -116,7 +135,7 @@ function Appointment() {
             <th></th>
           </tr>
           </thead>
-          {appointments.sort(sortFunc).map((item, index) => (
+          {filterAppointment.map((item, index) => (
             <tbody>
             <tr>
               <td>{item.fullName}</td>
@@ -146,7 +165,8 @@ function Appointment() {
               setAppointments={setAppointments}
             />
             </tbody>
-          ))}
+          ))
+          }
         </Table>
       </div>
     </div>
