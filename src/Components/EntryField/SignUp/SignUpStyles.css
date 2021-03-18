@@ -29,13 +29,12 @@ a.link {
   text-decoration: none;
 }
 
-
 /*===================================
 ==============Input=================
 ====================================*/
 
 .input-fields {
-  width: 80%;
+  width: 90% !important;
   display: flex;
   padding-left: 10%;
   flex-direction: column;
@@ -64,8 +63,8 @@ a.link {
 }
 
 .register-btn.MuiButton-root {
-  margin: 20px 0;
-  padding: 7px 50px;
+  margin: 20px 0 10px;
+  padding: 7px 15px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
@@ -82,3 +81,7 @@ a.link {
   line-height: 21px;
   text-transform: capitalize;
 }
+
+/*===================================
+==============Media screen=================
+====================================*/

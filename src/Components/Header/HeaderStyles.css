@@ -10,13 +10,78 @@
   font-weight: 300;
 }
 
-.left-side{
+.left-side {
   display: flex;
   align-items: center;
 }
 
-.toolbar.MuiToolbar-root{
+.toolbar.MuiToolbar-root {
   display: flex;
   justify-content: space-between;
   margin-right: 4vw;
+}
+
+
+@media screen and (max-width: 530px) {
+  .toolbar.MuiToolbar-root {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-text.MuiTypography-root {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .nav-text.MuiTypography-root {
+    font-size: 25px;
+  }
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 422px) {
+  .nav-text.MuiTypography-root {
+    font-size: 20px;
+  }
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .nav-text.MuiTypography-root {
+    font-size: 18px;
+  }
+
+  .toolbar.MuiToolbar-root {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  img {
+    width: 50px;
+  }
 }

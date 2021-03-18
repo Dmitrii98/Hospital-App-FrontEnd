@@ -48,3 +48,10 @@ div.MuiTextField-root {
   justify-content: flex-end;
   height: 0;
 }
+
+/*===================================
+==============MediaScreen============
+====================================*/
+
+@media screen and (max-width: 1200px) {
+}

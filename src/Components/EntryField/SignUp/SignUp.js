@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import {
   TextField,
@@ -6,7 +7,6 @@ import {
   Snackbar
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Link } from 'react-router-dom';
 import './SignUpStyles.css';
 
 function Alert(props) {
@@ -14,6 +14,7 @@ function Alert(props) {
 }
 
 function SignUp() {
+  let history = useHistory();
   const regexpLogin = /.{6,}/;
   const regexpPassword = /(?=.*[0-9])[A-Za-z0-9]{5,}/;
   const [login, setLogin] = useState('');
@@ -43,6 +44,9 @@ function SignUp() {
       setAlert('success');
       setErrorText('Пользователь зарегистрирован!');
       setError(true);
+      localStorage.setItem('user', res.data);
+      history.push('/main');
+      window.location.reload();
     } catch (e) {
       setAlert('error');
       setErrorText('Такой пользователь уже существует!');

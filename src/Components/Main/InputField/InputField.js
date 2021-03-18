@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from "axios";
 import {
   Button,
@@ -90,6 +90,7 @@ function InputField() {
             onChange={(e) => setComplaint(e.target.value)}
           />
         </div>
+        <div>
           <Button
             className='add-btn'
             variant="outlined"
@@ -100,6 +101,7 @@ function InputField() {
           >
             Добавить
           </Button>
+        </div>
       </div>
     </div>
   );

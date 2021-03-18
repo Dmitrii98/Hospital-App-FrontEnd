@@ -30,7 +30,7 @@ p {
   margin: 5% 0;
 }
 
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -88,3 +88,41 @@ a{
   padding-right: 0;
 }
 
+/*===================================
+==============Media screen=================
+====================================*/
+
+@media screen and (max-width: 690px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .enter-btn.MuiButton-root {
+    margin-top: 8%;
+  }
+
+  a {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .MuiOutlinedInput-input {
+    padding: 3% 0 !important;
+  }
+
+  .enter-btn.MuiButton-root {
+    padding: 3% 0;
+  }
+
+  .header-text {
+    margin: 3% 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .header-text {
+    font-size: 30px;
+  }
+}
