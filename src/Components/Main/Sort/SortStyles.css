@@ -1,106 +1,104 @@
 .sort {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 10%;
-    margin-top: 4vh;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10%;
+  margin-top: 4vh;
+  align-items: center;
 }
 
 .sortType {
-    display: flex;
-    justify-content: flex-end;
-    width: 40%;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  align-items: center;
 }
 
 .input-sort {
-    background: #fff;
-    width: 20%;
+  background: #fff;
+  width: 20%;
 }
 
 .input-sortType {
-    background: #fff;
-    width: 100%;
+  background: #fff;
+  width: 100%;
 }
 
 
 .text-sort {
-    margin: 0 1vw 0 0;
+  margin: 0 1vw 0 0;
 }
 
 .textSortType {
-    display: flex;
-    justify-content: flex-end;
-    margin: 0 1vw 0 0;
-    width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 1vw 0 0;
+  width: 100%;
 }
 
 .filter {
-<<<<<<< Updated upstream
-    display: flex;
-    align-items: center;
-    margin-left: 2vw;
+  display: flex;
+  align-items: center;
+  margin-left: 2vw;
 }
 
 .no-filter {
-    display: none;
+  display: none;
 }
 
 .text-filter {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .add-filter {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .add-filter-properties {
-    display: flex;
-    padding: 0 10%;
-    margin-top: 2%;
-    align-items: center;
+  display: flex;
+  padding: 0 10%;
+  margin-top: 2%;
+  align-items: center;
 }
 
 .item-date {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .second-item-date {
-    margin-left: 2vw;
+  margin-left: 2vw;
 }
 
 .MuiOutlinedInput-root {
-    padding: 2% 5%;
+  padding: 2% 5%;
 }
 
 .input-date-filter.MuiTextField-root {
-    width: 15vw;
-    background-color: #fff;
+  width: 15vw;
+  background-color: #fff;
 }
 
 .date-text {
-    margin: 0vh 1vw 0 0;
-    display: inline-block;
+  margin-right: 1vw;
+  display: inline-block;
 }
 
 .add-filter-btn.MuiButton-root {
-    padding: 2.5vh 2vw;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 21px;
-    text-transform: capitalize;
-    background: #fff;
-    margin-left: 3vw;
-    height: 0;
+  padding: 2.5vh 2vw;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: capitalize;
+  background: #fff;
+  margin-left: 3vw;
+  height: 0;
 }
 
-.delete-filter-btn.MuiIconButton-root{
-    margin-left: 2.5vw;
-=======
+.delete-filter-btn.MuiIconButton-root {
+  margin-left: 2.5vw;
   display: flex;
   align-items: center;
   margin-left: 2vw;
@@ -164,5 +162,4 @@
 
 .delete-filter-btn.MuiIconButton-root {
   margin-left: 2.5vw;
->>>>>>> Stashed changes
 }
