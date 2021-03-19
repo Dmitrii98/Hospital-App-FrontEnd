@@ -9,20 +9,9 @@
 .sortType {
   display: flex;
   justify-content: flex-end;
-  width: 40%;
   align-items: center;
+  margin-left: 30px;
 }
-
-.input-sort {
-  background: #fff;
-  width: 20%;
-}
-
-.input-sortType {
-  background: #fff;
-  width: 100%;
-}
-
 
 .text-sort {
   margin: 0 1vw 0 0;
@@ -32,7 +21,6 @@
   display: flex;
   justify-content: flex-end;
   margin: 0 1vw 0 0;
-  width: 100%;
 }
 
 .filter {
@@ -70,38 +58,9 @@
   margin-left: 2vw;
 }
 
-.MuiOutlinedInput-root {
-  padding: 2% 5%;
-}
-
-.input-date-filter.MuiTextField-root {
-  width: 15vw;
-  background-color: #fff;
-}
-
 .date-text {
   margin-right: 1vw;
   display: inline-block;
-}
-
-.add-filter-btn.MuiButton-root {
-  padding: 2.5vh 2vw;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  text-transform: capitalize;
-  background: #fff;
-  margin-left: 3vw;
-  height: 0;
-}
-
-.delete-filter-btn.MuiIconButton-root {
-  margin-left: 2.5vw;
-  display: flex;
-  align-items: center;
-  margin-left: 2vw;
 }
 
 .no-filter {
@@ -133,19 +92,49 @@
   margin-left: 2vw;
 }
 
-.MuiOutlinedInput-root {
-  padding: 2% 5%;
+.date-text {
+  margin: 0vh 1vw 0 0;
+  display: inline-block;
 }
+
+/*===================================
+==============Input=================
+====================================*/
 
 .input-date-filter.MuiTextField-root {
   width: 15vw;
   background-color: #fff;
 }
 
-.date-text {
-  margin: 0vh 1vw 0 0;
-  display: inline-block;
+.MuiOutlinedInput-root {
+  padding: 2% 5%;
 }
+
+.input-date-filter .MuiOutlinedInput-input {
+  padding: 5% 5%;
+  background-color: #fff;
+}
+
+.input-sort {
+  background: #fff;
+}
+
+.input-sortType {
+  background: #fff;
+  width: 100%;
+}
+
+.input-sort .MuiOutlinedInput-input {
+  width: 15vw;
+}
+
+.input-sortType .MuiOutlinedInput-input {
+  width: 12vw;
+}
+
+/*===================================
+==============Button================
+====================================*/
 
 .add-filter-btn.MuiButton-root {
   padding: 2.5vh 2vw;
@@ -157,9 +146,104 @@
   text-transform: capitalize;
   background: #fff;
   margin-left: 3vw;
-  height: 0;
+  padding: 1%;
 }
 
 .delete-filter-btn.MuiIconButton-root {
   margin-left: 2.5vw;
+  display: flex;
+  align-items: center;
+  margin-left: 2.5vw;
+}
+
+/*===================================
+==============MediaScreen============
+====================================*/
+
+@media screen and (max-width: 900px) {
+
+  .input-sort .MuiOutlinedInput-input {
+    width: 25vw;
+  }
+
+  .input-sortType .MuiOutlinedInput-input {
+    width: 10vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .sort {
+    flex-direction: column;
+  }
+
+  .sortType {
+    flex-direction: column;
+    margin: 30px 0;
+    width: 100%;
+  }
+
+  .input-sort .MuiOutlinedInput-input {
+    width: 100%;
+  }
+
+  .input-sort.MuiTextField-root {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .input-sortType .MuiOutlinedInput-input {
+    width: 50vw;
+  }
+
+  .input-sortType.MuiTextField-root {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .add-filter-properties {
+    flex-direction: column;
+    padding: 0 5%;
+  }
+
+  .item-date {
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .input-date-filter.MuiTextField-root {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .input-date-filter .MuiOutlinedInput-input {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .add-filter-btn.MuiButton-root{
+    margin: 20px 0 0;
+    width: 40vw;
+    height: 5vh;
+  }
+
+  .delete-filter-btn.MuiIconButton-root{
+    margin: 10px 0 0;
+  }
+
+  .sort {
+    padding: 0 5%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .input-date-filter .MuiOutlinedInput-input {
+    font-size: 16px;
+  }
+
+  .add-filter-btn.MuiButton-root{
+    font-size: 16px;
+  }
 }

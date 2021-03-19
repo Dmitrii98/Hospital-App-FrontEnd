@@ -22,7 +22,7 @@ div.MuiTextField-root {
   margin-left: 0.7vw;
 }
 
-.input.MuiOutlinedInput-input {
+.input .MuiOutlinedInput-input {
   padding: 3.5% 5%;
 }
 
@@ -35,8 +35,11 @@ div.MuiTextField-root {
 ==============Button=================
 ====================================*/
 
+.free-space {
+  height: 100%;
+}
+
 .add-btn.MuiButton-root {
-  padding: 20px 30px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
@@ -46,7 +49,11 @@ div.MuiTextField-root {
   background: #fff;
   margin-left: 1vw;
   justify-content: flex-end;
-  height: 0;
+  padding: 10% 5%;
+}
+
+.accordion-btn.MuiButton-root {
+  display: none;
 }
 
 /*===================================
@@ -54,4 +61,92 @@ div.MuiTextField-root {
 ====================================*/
 
 @media screen and (max-width: 1200px) {
+  .add-btn.MuiButton-root {
+    padding: 8% 5%;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+  .input-date .MuiOutlinedInput-input {
+    font-size: 16px;
+  }
+
+  .add-btn.MuiButton-root {
+    padding: 7% 5%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .input-date .MuiOutlinedInput-input {
+    font-size: 14px;
+  }
+
+  .add-btn.MuiButton-root {
+    padding: 6% 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .accordion-mode {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    margin-top: 3%;
+  }
+
+  .input-field {
+    display: none;
+  }
+
+  .item-input {
+    width: 100%;
+    margin-left: 0.7vw;
+  }
+
+  .input-date .MuiOutlinedInput-input {
+    font-size: 18px;
+  }
+
+  .input .MuiOutlinedInput-input {
+    padding: 2% 0;
+  }
+
+  .add-btn.MuiButton-root {
+    margin: 20px 0 0;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+  }
+
+  .input-text {
+    margin: 10px 0 5px 0;
+  }
+
+  .input-field {
+    padding: 0 5%;
+  }
+
+  .accordion-btn.MuiButton-root {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  .add-btn-div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .input-date .MuiOutlinedInput-input {
+    font-size: 16px;
+  }
 }

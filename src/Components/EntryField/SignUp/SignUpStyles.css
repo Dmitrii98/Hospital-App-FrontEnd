@@ -54,12 +54,12 @@ a.link {
 ==============Button=================
 ====================================*/
 
-.authorization-btn-div{
+.authorization-btn-div {
   display: flex;
   justify-content: flex-end;
 }
 
-.register-btn-div{
+.register-btn-div {
   display: flex;
   justify-content: flex-end;
 }

@@ -5,6 +5,8 @@ import {
   MenuItem,
   TextField
 } from '@material-ui/core';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import './InputFieldStyles.css';
 
 function InputField() {
@@ -12,6 +14,7 @@ function InputField() {
   const [doctor, setDoctor] = useState([]);
   const [date, setDate] = useState('');
   const [complaint, setComplaint] = useState('');
+  const [accordion, setAccordion] = useState(false)
 
   const doctors = [
     {name: "Доктор Курпатов"},
@@ -37,9 +40,14 @@ function InputField() {
   }
   return (
     <div className="main">
-      <div className='input-field'>
+      <div className={
+        accordion
+          ? 'accordion-mode'
+          : 'input-field'
+      }
+      >
         <div className='item-input'>
-          <p>Имя:</p>
+          <p className='input-text'>Имя:</p>
           <TextField
             type='text'
             id='outlined-basic'
@@ -50,7 +58,7 @@ function InputField() {
           />
         </div>
         <div className='item-input'>
-          <p>Врач:</p>
+          <p className='input-text'>Врач:</p>
           <TextField
             id="input-doctor"
             className='input'
@@ -69,18 +77,18 @@ function InputField() {
           </TextField>
         </div>
         <div className='item-input'>
-          <p>Дата:</p>
+          <p className='input-text'>Дата:</p>
           <TextField
             type='date'
             id='outlined-basic'
-            className='input'
+            className='input input-date'
             variant='outlined'
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
         <div className='item-input'>
-          <p>Жалобы:</p>
+          <p className='input-text'>Жалобы:</p>
           <TextField
             type='text'
             id='outlined-basic'
@@ -90,7 +98,7 @@ function InputField() {
             onChange={(e) => setComplaint(e.target.value)}
           />
         </div>
-        <div>
+        <div className='add-btn-div'>
           <Button
             className='add-btn'
             variant="outlined"
@@ -103,6 +111,19 @@ function InputField() {
           </Button>
         </div>
       </div>
+      <Button className='accordion-btn'>
+        {accordion
+          ? <KeyboardArrowUpIcon
+            fontSize="large"
+            onClick={() => setAccordion(false)}
+          />
+          : <KeyboardArrowDownIcon
+            fontSize="large"
+            className={accordion === true ? 'none' : 'arrow-down'}
+            onClick={() => setAccordion(true)}
+          />
+        }
+      </Button>
     </div>
   );
 }

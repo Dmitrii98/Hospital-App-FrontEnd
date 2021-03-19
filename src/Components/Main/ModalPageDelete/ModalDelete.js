@@ -35,7 +35,7 @@ function ModalDelete(
         className='dialog'
       >
         <DialogTitle id="form-dialog-title">Удалить прием <hr/></DialogTitle>
-        <DialogContent>
+        <DialogContent className='dialog-content'>
           <p className='text'>Вы действительно хотите удалить прием?</p>
           <hr/>
         </DialogContent>

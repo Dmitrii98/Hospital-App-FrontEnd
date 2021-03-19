@@ -11,32 +11,34 @@
   font-weight: 300;
 }
 
-.fullName-input {
-  width: 30vw;
+.fullName-input.MuiTextField-root {
+  width: 100%;
 }
 
-.doctor-input {
-  width: 30vw;
+.doctor-input.MuiTextField-root {
+  width: 100%;
 }
 
-.date-input {
-  width: 30vw;
+.date-input.MuiTextField-root {
+  width: 100%;
 }
 
-.complaint-input {
+.complaint-input.MuiTextField-root {
   margin-bottom: 5vh;
-  width: 30vw;
+  width: 100%;
 }
 
 .save-btn.MuiButton-root {
   background: rgba(197, 233, 255, 0.7);
   width: 7vw;
   height: 5vh;
+  margin-right: 15px;
 }
 
 .cancel-btn.MuiButton-root {
   width: 7vw;
   height: 5vh;
+  margin-right: 5px;
 }
 
 .save-btn.MuiButton-root:hover {
