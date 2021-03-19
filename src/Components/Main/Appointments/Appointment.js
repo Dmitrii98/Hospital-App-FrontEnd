@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
-import {IconButton} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import Sort from "../Sort/Sort";
@@ -125,7 +125,7 @@ function Appointment() {
         setStartFilter={setStartFilter}
       />
       <div className='all-appointments'>
-        <div className='table-scroll '>
+        <div className='table-scroll'>
           <Table striped bordered hover>
             <thead>
             <tr>
@@ -144,10 +144,14 @@ function Appointment() {
                 <td>{item.date}</td>
                 <td>{item.complaint}</td>
                 <td className='btns'>
-                  <IconButton aria-label="delete" onClick={() => handleClickOpenDelete(index)}>
+                  <IconButton
+                    aria-label="delete"
+                    onClick={() => handleClickOpenDelete(index)}>
                     <DeleteIcon/>
                   </IconButton>
-                  <IconButton aria-label="edit" onClick={() => handleClickOpen(index)}>
+                  <IconButton
+                    aria-label="edit"
+                    onClick={() => handleClickOpen(index)}>
                     <EditOutlinedIcon/>
                   </IconButton>
                 </td>

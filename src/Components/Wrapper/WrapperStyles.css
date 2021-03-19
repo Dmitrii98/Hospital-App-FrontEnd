@@ -6,22 +6,20 @@
 
 .logo-wrapper {
   margin: 5% 10% 0;
-  height: 375px;
-  width: 375px;
+  height: 100%;
+  width: 25%;
 }
 
 @media screen and (max-width: 1100px) {
   .logo-wrapper {
-    height: 350px;
-    width: 350px;
+    width: 30%;
     margin: 5% 10% 0 7%;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .logo-wrapper {
-    height: 330px;
-    width: 330px;
+    width: 40%;
     margin: 5% 10% 0 7%;
   }
 
@@ -62,8 +60,7 @@
 
 @media screen and (max-width: 740px) {
   .logo-wrapper {
-    height: 280px;
-    width: 280px;
+    width: 40%;
   }
 }
 
