@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import {
   TextField,
@@ -6,7 +7,6 @@ import {
   Snackbar
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Link } from 'react-router-dom';
 import './SignUpStyles.css';
 
 function Alert(props) {
@@ -14,6 +14,7 @@ function Alert(props) {
 }
 
 function SignUp() {
+  let history = useHistory();
   const regexpLogin = /.{6,}/;
   const regexpPassword = /(?=.*[0-9])[A-Za-z0-9]{5,}/;
   const [login, setLogin] = useState('');
@@ -43,6 +44,8 @@ function SignUp() {
       setAlert('success');
       setErrorText('Пользователь зарегистрирован!');
       setError(true);
+      localStorage.setItem('user', res.data);
+      history.push('/main');
     } catch (e) {
       setAlert('error');
       setErrorText('Такой пользователь уже существует!');
@@ -81,7 +84,6 @@ function SignUp() {
         Регистрация
       </h2>
       <div className='input-fields'>
-        <div className='login'>
           <p className='login-p'>Login:</p>
           <TextField
             type='text'
@@ -92,8 +94,6 @@ function SignUp() {
             value={login}
             onChange={(e) => setLogin(e.target.value)}
           />
-        </div>
-        <div className='password'>
           <p className='password-p'>Password:</p>
           <TextField
             id="outlined-basic"
@@ -105,8 +105,6 @@ function SignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <div className='password'>
           <p className='repeat-password-p'>Repeat password:</p>
           <TextField
             id="outlined-basic"
@@ -118,8 +116,7 @@ function SignUp() {
             value={passwordRepeat}
             onChange={(e) => setPasswordRepeat(e.target.value)}
           />
-        </div>
-        <div className='buttons'>
+          <div className='register-btn-div'>
           <Button
             className='register-btn'
             variant="outlined"
@@ -131,6 +128,8 @@ function SignUp() {
           >
             Зарегистрироваться
           </Button>
+          </div>
+        <div className='authorization-btn-div'>
           <Link to='/signIn'>
             <Button
               className='authorization-btn'
@@ -138,6 +137,7 @@ function SignUp() {
               Авторизоваться
             </Button>
           </Link>
+        </div>
           <Snackbar
             anchorOrigin={{
               vertical: 'top',
@@ -149,7 +149,6 @@ function SignUp() {
           >
             <Alert severity={alert}>{errorText}</Alert>
           </Snackbar>
-        </div>
       </div>
     </div>
   );

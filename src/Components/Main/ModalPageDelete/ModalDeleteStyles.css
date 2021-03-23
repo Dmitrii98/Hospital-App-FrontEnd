@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  opacity: 0.4;
 }
 
 #form-dialog-title .MuiTypography-h6 {
@@ -15,11 +16,13 @@
   background: rgba(197, 233, 255, 0.7);
   width: 7vw;
   height: 5vh;
+  margin-right: 15px;
 }
 
 .cancel-btn.MuiButton-root {
   width: 7vw;
   height: 5vh;
+  margin-right: 5px;
 }
 
 .delete-btn.MuiButton-root:hover {
@@ -27,11 +30,33 @@
 }
 
 p.text {
-  width: 30vw;
-  margin-bottom: 6vh;
+  width: 100%;
+  margin-bottom: 20px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
+}
+
+@media screen and (max-width: 400px) {
+  .cancel-btn.MuiButton-root {
+    width: 12vw;
+    height: 5.5vh;
+  }
+
+  .delete-btn.MuiButton-root {
+    width: 12vw;
+    height: 5.5vh;
+  }
+
+  p.text {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #form-dialog-title .MuiTypography-h6 {
+    font-size: 30px;
+  }
 }

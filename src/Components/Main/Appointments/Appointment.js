@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
-import {IconButton} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import Sort from "../Sort/Sort";
@@ -125,49 +125,55 @@ function Appointment() {
         setStartFilter={setStartFilter}
       />
       <div className='all-appointments'>
-        <Table striped bordered hover>
-          <thead>
-          <tr>
-            <th>Имя</th>
-            <th>Врач</th>
-            <th>Дата</th>
-            <th>Жалобы</th>
-            <th></th>
-          </tr>
-          </thead>
-          {filterAppointment.map((item, index) => (
-            <tbody>
+        <div className='table-scroll'>
+          <Table striped bordered hover>
+            <thead>
             <tr>
-              <td>{item.fullName}</td>
-              <td>{item.doctor}</td>
-              <td>{item.date}</td>
-              <td>{item.complaint}</td>
-              <td className='btns'>
-                <IconButton aria-label="delete" onClick={() => handleClickOpenDelete(index)}>
-                  <DeleteIcon/>
-                </IconButton>
-                <IconButton aria-label="edit" onClick={() => handleClickOpen(index)}>
-                  <EditOutlinedIcon/>
-                </IconButton>
-              </td>
+              <th>Имя</th>
+              <th>Врач</th>
+              <th>Дата</th>
+              <th>Жалобы</th>
+              <th></th>
             </tr>
-            <ModalEdit
-              open={open}
-              close={handleClose}
-              appointments={appointments[indexEdit] || {}}
-            />
-            <ModalDelete
-              close={handleCloseDelete}
-              open={openDelete}
-              indexEdit={indexEdit}
-              setIndexEdit={setIndexEdit}
-              appointments={appointments}
-              setAppointments={setAppointments}
-            />
-            </tbody>
-          ))
-          }
-        </Table>
+            </thead>
+            {filterAppointment.map((item, index) => (
+              <tbody>
+              <tr>
+                <td>{item.fullName}</td>
+                <td>{item.doctor}</td>
+                <td>{item.date}</td>
+                <td>{item.complaint}</td>
+                <td className='btns'>
+                  <IconButton
+                    aria-label="delete"
+                    onClick={() => handleClickOpenDelete(index)}>
+                    <DeleteIcon/>
+                  </IconButton>
+                  <IconButton
+                    aria-label="edit"
+                    onClick={() => handleClickOpen(index)}>
+                    <EditOutlinedIcon/>
+                  </IconButton>
+                </td>
+              </tr>
+              <ModalEdit
+                open={open}
+                close={handleClose}
+                appointments={appointments[indexEdit] || {}}
+              />
+              <ModalDelete
+                close={handleCloseDelete}
+                open={openDelete}
+                indexEdit={indexEdit}
+                setIndexEdit={setIndexEdit}
+                appointments={appointments}
+                setAppointments={setAppointments}
+              />
+              </tbody>
+            ))
+            }
+          </Table>
+        </div>
       </div>
     </div>
   );

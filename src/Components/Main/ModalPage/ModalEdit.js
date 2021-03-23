@@ -45,7 +45,7 @@ function ModalEdit(
   }
 
   return (
-    <div className="Modal">
+    <div className="modal">
       <Dialog
         open={open}
         onClose={() => close()}

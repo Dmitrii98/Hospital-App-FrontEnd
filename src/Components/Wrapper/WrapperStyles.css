@@ -5,8 +5,72 @@
 }
 
 .logo-wrapper {
-  margin-right: 10%;
-  height: 375px;
-  width: 375px;
-  margin-top: 5%;
+  margin: 5% 10% 0;
+  height: 100%;
+  width: 25%;
+}
+
+@media screen and (max-width: 1100px) {
+  .logo-wrapper {
+    width: 30%;
+    margin: 5% 10% 0 7%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .logo-wrapper {
+    width: 40%;
+    margin: 5% 10% 0 7%;
+  }
+
+  .wrapper {
+    padding: 5% 7%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .wrapper {
+    padding: 5% 5%;
+  }
+
+  .logo-wrapper {
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .wrapper {
+    padding: 5% 5%;
+  }
+
+  .logo-wrapper {
+    margin-left: 3%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .wrapper {
+    padding: 5% 3%;
+  }
+
+  .logo-wrapper {
+    margin-left: 2%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .logo-wrapper {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .logo-wrapper {
+    display: none;
+    margin: 0;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
 }

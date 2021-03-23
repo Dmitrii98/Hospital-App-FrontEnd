@@ -76,7 +76,8 @@ function Sort(props) {
           <IconButton
             className='add-filter'
             aria-label="addFilter"
-            onClick={() => setFilter(true)}>
+            onClick={() => setFilter(true)}
+          >
             <AddBoxOutlinedIcon/>
           </IconButton>
         </div>

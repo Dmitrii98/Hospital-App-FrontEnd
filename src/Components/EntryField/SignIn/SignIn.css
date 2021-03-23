@@ -30,7 +30,7 @@ p {
   margin: 5% 0;
 }
 
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -39,36 +39,38 @@ a{
 ====================================*/
 
 .input-fields {
-  width: 80%;
+  width: 100%;
   display: flex;
   padding-left: 10%;
   flex-direction: column;
 }
 
-.MuiOutlinedInput-input {
-  padding: 3% 5% !important;
-}
-
-.login-input.MuiTextField-root {
+.login-input .MuiOutlinedInput-root {
+  padding: 0 5%;
   width: 100%;
 }
 
-.password-input.MuiTextField-root {
+.password-input .MuiOutlinedInput-root {
   width: 100%;
+  padding: 0 5%;
 }
 
 /*===================================
 ==============Button=================
 ====================================*/
 
-.buttons {
+.enter-btn-div {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
+}
+
+.sign-up-btn-div {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .enter-btn.MuiButton-root {
-  margin: 40px 0 20px 0;
+  margin: 35px 0 20px 0;
   padding: 7px 50px;
   font-family: 'Roboto';
   font-style: normal;
@@ -86,5 +88,40 @@ a{
   line-height: 21px;
   text-transform: capitalize;
   padding-right: 0;
+  margin-bottom: 25px;
 }
 
+/*===================================
+==============Media screen=================
+====================================*/
+
+@media screen and (max-width: 690px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .enter-btn.MuiButton-root {
+    margin-top: 8%;
+  }
+
+  a {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .password-input .MuiOutlinedInput-root {
+    width: 100%;
+  }
+
+  .header-text {
+    margin: 3% 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .header-text {
+    font-size: 30px;
+  }
+}

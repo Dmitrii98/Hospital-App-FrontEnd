@@ -66,32 +66,28 @@ function SignIn() {
         Авторизация
       </h2>
       <div className='input-fields'>
-        <div className='login'>
-          <p className='login-p'>Login:</p>
-          <TextField
-            type='text'
-            id='outlined-basic'
-            className='login-input'
-            variant='outlined'
-            placeholder='Login'
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
-          />
-        </div>
-        <div className='password'>
-          <p className='password-p'>Password:</p>
-          <TextField
-            id="outlined-basic"
-            type="password"
-            autoComplete="current-password"
-            className='password-input'
-            variant="outlined"
-            placeholder='Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className='buttons'>
+        <p className='login-p'>Login:</p>
+        <TextField
+          type='text'
+          id='outlined-basic'
+          className='login-input'
+          variant='outlined'
+          placeholder='Login'
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
+        <p className='password-p'>Password:</p>
+        <TextField
+          id="outlined-basic"
+          type="password"
+          autoComplete="current-password"
+          className='password-input'
+          variant="outlined"
+          placeholder='Password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className='enter-btn-div'>
           <Button
             className='enter-btn'
             variant="outlined"
@@ -103,25 +99,27 @@ function SignIn() {
           >
             Войти
           </Button>
-          <Link to='/signUp'>
-            <Button
-              className='sign-up-btn'
-            >
-              Зарегистрироваться
-            </Button>
-          </Link>
-          <Snackbar
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={openError}
-            autoHideDuration={6000}
-            onClose={handleClose}
-          >
-            <Alert severity={alert}>{errorText}</Alert>
-          </Snackbar>
         </div>
+        <div className='sign-up-btn-div'>
+        <Link to='/signUp'>
+          <Button
+            className='sign-up-btn'
+          >
+            Зарегистрироваться
+          </Button>
+        </Link>
+        </div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={openError}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert severity={alert}>{errorText}</Alert>
+        </Snackbar>
       </div>
     </div>
   );
