@@ -93,7 +93,7 @@
 }
 
 .date-text {
-  margin: 0vh 1vw 0 0;
+  margin-right: 1vw;
   display: inline-block;
 }
 
@@ -161,7 +161,6 @@
 ====================================*/
 
 @media screen and (max-width: 900px) {
-
   .input-sort .MuiOutlinedInput-input {
     width: 25vw;
   }
@@ -172,7 +171,6 @@
 }
 
 @media screen and (max-width: 800px) {
-
   .sort {
     flex-direction: column;
   }
@@ -222,13 +220,13 @@
     font-size: 18px;
   }
 
-  .add-filter-btn.MuiButton-root{
+  .add-filter-btn.MuiButton-root {
     margin: 20px 0 0;
     width: 40vw;
     height: 5vh;
   }
 
-  .delete-filter-btn.MuiIconButton-root{
+  .delete-filter-btn.MuiIconButton-root {
     margin: 10px 0 0;
   }
 
@@ -238,12 +236,11 @@
 }
 
 @media screen and (max-width: 320px) {
-
   .input-date-filter .MuiOutlinedInput-input {
     font-size: 16px;
   }
 
-  .add-filter-btn.MuiButton-root{
+  .add-filter-btn.MuiButton-root {
     font-size: 16px;
   }
 }

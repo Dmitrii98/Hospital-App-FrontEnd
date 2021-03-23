@@ -60,13 +60,12 @@
     margin-left: 10px;
   }
 
-  .logout-btn .MuiButton-root span{
+  .logout-btn .MuiButton-root span {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 350px) {
-
   .toolbar.MuiToolbar-root {
     display: flex;
     justify-content: space-between;

@@ -40,7 +40,6 @@ p.text {
 }
 
 @media screen and (max-width: 400px) {
-
   .cancel-btn.MuiButton-root {
     width: 12vw;
     height: 5.5vh;
@@ -57,7 +56,6 @@ p.text {
 }
 
 @media screen and (max-width: 350px) {
-
   #form-dialog-title .MuiTypography-h6 {
     font-size: 30px;
   }

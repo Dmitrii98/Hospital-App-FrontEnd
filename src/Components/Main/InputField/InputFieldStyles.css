@@ -145,7 +145,6 @@ div.MuiTextField-root {
 }
 
 @media screen and (max-width: 320px) {
-
   .input-date .MuiOutlinedInput-input {
     font-size: 16px;
   }

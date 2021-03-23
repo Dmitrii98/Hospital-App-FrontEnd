@@ -14,7 +14,7 @@ function InputField() {
   const [doctor, setDoctor] = useState([]);
   const [date, setDate] = useState('');
   const [complaint, setComplaint] = useState('');
-  const [accordion, setAccordion] = useState(false)
+  const [accordion, setAccordion] = useState(false);
 
   const doctors = [
     {name: "Доктор Курпатов"},
@@ -44,7 +44,7 @@ function InputField() {
         accordion
           ? 'accordion-mode'
           : 'input-field'
-      }
+        }
       >
         <div className='item-input'>
           <p className='input-text'>Имя:</p>
